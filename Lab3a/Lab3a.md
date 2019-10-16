@@ -4,7 +4,9 @@
 
 In this lab we will transform some of our data using Databricks. This will be achieved running SparkSQL commands in an interactive notebook environment. 
 
-To get started, first create a Databricks workspace in the East US region.  
+To get started, first create a Databricks workspace in the East US region. Make use of the trial pricing tier. 
+
+![Databricksworkspace.png](images/Databricksworkspace.png)
 
 # Next
 
