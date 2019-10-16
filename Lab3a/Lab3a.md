@@ -14,9 +14,9 @@ You will also need an Azure Key Vault to store secrets. Create a key vault as sh
 
 ![KeyVault.png](images/KeyVault.png)
 
-##Accessing ADLS from Databricks
+## Accessing ADLS from Databricks
 
-Using Azure Data Lake Storage with Databricks requires a service principal with delegated permissions. Start by creating a Gen2 storage account with the ![hierarchical namespace](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-namespace) enabled. Make note of the keys. Then follow the steps to create a service principal by registering an application and then assigning the “Storage Blob Data Contributor” role to the service principal (the registered application) at the level of the resource i.e. in the access control of the data lake storage account. 
+Using [Azure Data Lake Storage with Databricks](https://docs.databricks.com/spark/latest/data-sources/azure/azure-datalake-gen2.html#azure-data-lake-storage-gen2) requires a service principal with delegated permissions. Start by creating a [Gen2 storage account](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account) with the [hierarchical namespace](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-namespace) enabled. Make note of the keys. Then follow the steps to create a service principal by registering an application and then assigning the “Storage Blob Data Contributor” role to the service principal (the registered application) at the level of the resource i.e. in the access control of the data lake storage account. 
 
 
 By now your Databricks workspace should be ready, find the resource and click Launch Workspace. A new tab will open and the Databricks workspace landing page will be displayed. You may be prompted for your Azure credentials again.
