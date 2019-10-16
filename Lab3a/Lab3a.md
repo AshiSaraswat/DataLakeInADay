@@ -20,6 +20,11 @@ By now your Databricks workspace should be ready, find the resource and click La
 
 ![Databricks.png](images/Databricks.png)
 
+Next import the notebooks required for this lab. Click on the Home icon, and click on the drop menu next to your username to reveal the import option.
+
+![Importnotebook.png](images/Importnotebook.png)
+
+
 # Next
 
 Now you can go on to [Lab 4](../Lab4/Lab4.md)
