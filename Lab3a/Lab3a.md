@@ -8,6 +8,14 @@ To get started, first create a Databricks workspace in the East US region. Make 
 
 ![Databricksworkspace.png](images/Databricksworkspace.png)
 
+ Note you are only billed for the time your cluster is running, and you can use the pricing calculator to get an idea of costs. Essentially though you’re paying for the underyling VMs (which are provisioned in an automatically created resource group) and DBUs which are processing units per hour. If you take the free trial, you will only pay for the VMs.
+ 
+You will also need an Azure Key Vault to store secrets. Create a key vault as shown in the diagram below.
+
+![KeyVault.png](images/KeyVault.png)
+
+https://westus.azuredatabricks.net#secrets/createScope
+
 # Next
 
 Now you can go on to [Lab 4](../Lab4/Lab4.md)
