@@ -49,7 +49,7 @@ Follow the [documentation](https://docs.azuredatabricks.net/security/secrets/sec
 ## Databricks Clusters
 In order to interact with the Databricks notebook we will need a running cluster. In the Databricks workspace, navigate to the Clusters page. Click create cluster, and create a cluster with all defaults except untick autoscale and specify 2 worker nodes.
 
-![cluster.png](images/cluster.png)
+![cluster.png](images/clustersm.png)
 
 # Next
 
