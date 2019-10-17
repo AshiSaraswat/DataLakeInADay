@@ -44,12 +44,27 @@ Before proceeding any further, let's add your secret to the Key Vault provisione
 Instead of using secrets in your code it is recommended to use Secrets scope backed by keyvault. To configure Databricks to access Key vault open the URL below in a new tab.
 https://eastus.azuredatabricks.net#secrets/createScope
 
-Follow the [documentation](https://docs.azuredatabricks.net/security/secrets/secret-scopes.html#create-an-azure-key-vault-backed-secret-scope) to complete this configuration. For convenience, use a scope name of "dliadsecrets".
+Follow the [documentation](https://docs.azuredatabricks.net/security/secrets/secret-scopes.html#create-an-azure-key-vault-backed-secret-scope) to complete this configuration. For convenience, use a scope name of "dliadsecrets". The DNS and Resource ID parameters can be found in the Properties blade of the Key Vault resource. 
 
 ## Databricks Clusters
 In order to interact with the Databricks notebook we will need a running cluster. In the Databricks workspace, navigate to the Clusters page. Click create cluster, and create a cluster with all defaults except untick autoscale and specify 2 worker nodes.
 
 ![cluster.png](images/clustersm.png)
+
+## Mount Azure Storage
+While the cluster starts up (5-8 mins) open the first notebook within the DataLakeInADay which is 0.Mount filesystem. Attached the starting cluster using the drop down under the title of the notebook.
+
+![startup.png](images/startupsm.png)
+
+Whether you are using Blob or Data Lake storage review the appropriate section and read the associated documentation links for that section. Next ensure that the dbutils secret API request contains the correct parameters.
+
+dbutils.secrets.get(scope = "<scope-name>", key = "<secret>"
+ 
+Once the cluster has started the icon will change to solid green
+
+![clusterstarted.png](images/clusterstarted.png)
+
+To run the particular command, click the run icon or use ctrl-enter.
 
 # Next
 
