@@ -64,9 +64,9 @@ dbutils.secrets.get(scope = "<scope-name>", key = "<secret>"
  
 Once the cluster has started the icon will change to solid green
 
-![clusterstarted.png](images/clusterstarted.png)
+![clusterstartedsm.png](images/clusterstartedsm.png)
 
-To run the particular command, click the run icon or use ctrl-enter.
+To run the particular command, click the run icon in the top right corner of the command box or click into the command box and use ctrl-enter.
 
 # Next
 
