@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab we will transform some of our data using Databricks. This will be achieved running SparkSQL commands in an interactive notebook environment. 
+In this lab we will transform some of our data using Databricks. This will be achieved running Spark SQL commands in an interactive notebook environment. 
 
 ## Provision the Databricks Workspace
 
@@ -60,13 +60,27 @@ While the cluster starts up (5-8 mins) open the first notebook within the DataLa
 
 Whether you are using Blob or Data Lake storage review the appropriate section and read the associated documentation links for that section. Next ensure that the dbutils secret API request contains the correct parameters.
 
-dbutils.secrets.get(scope = "<scope-name>", key = "<secret>"
+dbutils.secrets.get(scope = "<scope-name>", key = "<secret>")
  
 Once the cluster has started the icon will change to solid green
 
 ![clusterstartedsm.png](images/clusterstartedsm.png)
 
-To run the particular command, click the run icon in the top right corner of the command box or click into the command box and use ctrl-enter.
+Now create a mount point /mnt/datalake which points to the datalake filesystem created earlier. To run the particular command, click the run icon in the top right corner of the command box or click into the command box and use ctrl-enter. 
+
+If successful the command output will be "True", and you should be able to run the list command without any errors.
+
+## Optional: Obtaining weather data from Microsoft OpenAPI
+
+Before running this notebook you need to attached a python library to your cluster. Click on clusters, select your running clusters, click on the libraries tab, click Install New. Choose PyPI and enter azureml-opendatasets as the package name. Click install and  restart your cluster. Then open notebook 1. Get Weather Data and once the cluster is running again run the commands to retreive, store and query the weather data.
+
+## Raw to Cleansed
+
+In the Spark SQL folder open notebook 2. Raw to Cleansed and click run all. This notebook
+
+## Cleans to Model
+
+Run the next notebook
 
 # Next
 
