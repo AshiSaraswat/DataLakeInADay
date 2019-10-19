@@ -76,11 +76,13 @@ Before running this notebook you need to attached a python library to your clust
 
 ## Raw to Cleansed
 
-In the Spark SQL folder open notebook 2. Raw to Cleansed and click run all. This notebook
+In the Spark SQL folder open notebook 2. Raw to Cleansed and click run all. This notebook loads csv data from raw into the cleansed zone without imposing any predefined structure. During this stage you may wish apply filters and data type transformations to your data.   
 
 ## Cleans to Model
 
-Run the next notebook
+Run the next notebook to 
+
+tables in the model layer with a predefined structure.  
 
 # Next
 
