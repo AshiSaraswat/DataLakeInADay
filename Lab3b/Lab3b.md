@@ -1,4 +1,4 @@
-# Lab 3 - Process data using Mapping Data Flows
+ Lab 3 - Process data using Mapping Data Flows
 
 ## Introduction
 
@@ -12,17 +12,17 @@ We'll consolidate the weather data to a single table, and we'll remap some of th
 
 # Setup
 
-## Weather Data
+## Use ADF to retrevie zipped data from an SFTP
 
-First up we'll look at weather data. Since you will only have a single day of weather data we'll start by uploading some more sample data. Download the [Azure Storage Explorer](https://azure.microsoft.com/en-gb/features/storage-explorer/) and install it. Then download the [Sample Weather Data](https://github.com/davedoesdemos/DataLakeInADay/raw/master/data/weatherdata/SampleWeatherData.zip) and unzip somewhere on your system. Then use the storage explorer to upload the files into your storage account under /raw/WeatherCSV alongside your other data.
+First set up your FTP server by deploying [an on-demand SFTP Server (with a new Azure Files resource for persistent storage)](https://docs.microsoft.com/en-us/samples/azure-samples/sftp-creation-template/sftp-on-azure/) into the same resource group created for this workshop. Use the same username and password used through out this course, demogod and "Password123$".
 
-Don't wait for this to complete, just let the upload happen in the background.
+In this section we'll be using retreiving weather data from our FTP. Since you will only have a single day of weather data, upload some additional data to the FTP server. To do this wait for the FTP deployment to complete, then locate the storage account associated with this, and find the file share called sftpfileshare. Download the [Sample Weather Data](https://github.com/davedoesdemos/DataLakeInADay/raw/master/data/weatherdata/SampleWeatherData.zip) zip and either using storage explorer or the Azure portal upload it to this file share. Next make note of the IP address of your FTP server which can be found in the sftp-group of type container instances.   
 
 ## Data Prep Pipeline
 
 ### Weather Data
 
-In Data Factory, create a new pipeline and name it PipelineDataPrep. Add a Copy Data action to this and call that CopyWeatherData. On the source tab, click New to create a new dataset. Select Blob Storage and then your AzureBlobStorage linked service. Name this dataset DelimitedTextWeatherSource and then select /raw/weatherCSV as the folder and tick first row as header. Select no schema and click finish.
+In Data Factory, create a new pipeline and name it WeatherDataFromFTP. Add a Copy Data action to this and call that CopyWeatherData. On the source tab, click New to create a new dataset. Create a new linked service and chose SFTP. Complete the values for Host IP, obtained above, username and password. Test the service and click create if successful. Name this dataset ZippedTextWeatherSource and then browse for the zip file and chose compression type ZipDeflate.
 
 ![datasetWeather.png](images/datasetWeather.png)
 
@@ -44,7 +44,7 @@ Once we have the fact table, we will then create some aggregation tables with th
 
 ![Transorm.png](images/Transform.png)
 
-On your "pipelineDataPrep" canvas, drag in a data flow activity. Then select "Create new Data Flow" and then "Mapping Data Flow" and click Finish.
+Create a new pipeline called "pipelineDataPrep" and drag in a data flow activity. Then select "Create new Data Flow" and then "Mapping Data Flow" and click Finish.
 
 ![newDataFlow.png](images/newDataFlow.png)
 
