@@ -72,19 +72,21 @@ If successful the command output will be "True", and you should be able to run t
 
 ## Optional: Obtaining weather data from Microsoft OpenAPI
 
-Before running this notebook you need to attached a python library to your cluster. Click on clusters, select your running clusters, click on the libraries tab, click Install New. Choose PyPI and enter azureml-opendatasets as the package name. Click install and  restart your cluster. Then open notebook 1. Get Weather Data and once the cluster is running again run the commands to retreive, store and query the weather data.
+Before running this notebook you need to attached a python library to your cluster. Click on clusters, select your running clusters, click on the libraries tab, click Install New. Choose PyPI and enter azureml-opendatasets as the package name. Click install and  restart your cluster. Then open notebook 1. Get Weather Data and once the cluster is running again, run the commands to retreive, store and query the weather data.
 
 ## Raw to Cleansed
 
-In the Spark SQL folder open notebook 2. Raw to Cleansed and click run all. This notebook loads csv data from raw into the cleansed zone without imposing any predefined structure. During this stage you may wish apply filters and data type transformations to your data.   
+In the Spark SQL folder open notebook 1. Raw to Cleansed and click run all. As the code is running, review the descriptions and commands. 
+
+This notebook loads csv data from raw into the cleansed zone without imposing any predefined structure. During this stage you may wish apply filters and data type transformations to your data.   
 
 ## Cleansed to Model
 
-The next notebook loads the star schema in the model layer with a predefined structure.
+This notebook loads the star schema in the model layer using a predefined structure. Typically data is remapped in this stage and the final tables represent a star schema, optimised for reporting. In big data environments such as Spark, joins can be an expense operation therefore these tables are often denormalised. See [this blog post](https://www.advancinganalytics.co.uk/blog/2019/6/17/is-kimball-still-relevant-in-the-modern-data-warehouse) for more details.
 
 ## Load the data warehouse
 
-This notebook loads the data warehouse from the model layer into SQL Data warehouse
+This notebook loads the data warehouse from the model layer into SQL Data warehouse. Even though there is duplication of data, they are used for different purposes. The model layer in the data lake may sometimes be denormalised, and accessible for sandbox analytics and data science, whilst the dimensional models in the data warehouse are reserved for interative analytics and dashboarding. 
 
 # Next
 
