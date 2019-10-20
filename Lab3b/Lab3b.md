@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this lab we will transform some of our data. The setup is shown below, with Data Factory using data flows to transparently process data using Databricks behind the scenes. 
+In this lab we will transform our data using Azure Data Factory. The setup is shown below, with Data Factory Data Flows to transparently process data using Databricks behind the scenes. 
 
-![architecturewsft.png](images/architecturewsft.png)
+![architecturewsft.png](images/architecture.png)
 
 We'll consolidate the weather data to a single table, and we'll remap some of the other tables. Usually, this would all be done in a single pipeline. You can see below how this would be done by connecting the three data copy operations to the the next action with the green arrows (drag the green square on the right of an action to do this). Here, though, we'll create a separate prep pipeline which will allow us to manually trigger the job without re-running all of the tumbling window jobs as we did before.
 
