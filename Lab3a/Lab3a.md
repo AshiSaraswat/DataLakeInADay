@@ -88,6 +88,21 @@ This notebook loads the star schema in the model layer using a predefined struct
 
 This notebook loads the data warehouse from the model layer into SQL Data warehouse. Even though there is duplication of data, they are used for different purposes. The model layer in the data lake may sometimes be denormalised, and accessible for sandbox analytics and data science, whilst the dimensional models in the data warehouse are reserved for interative analytics and dashboarding. 
 
+## Combining notebooks into a single pipeline
+
+Review the last notebook 99. Run ETL which invokes all three notebooks, passing parameters to the first notebook. 
+
+## Run the notebook from ADF
+
+Before you can execute a Databricks notebook activity in ADF you will need to configure an access token. Click in the User settings menu in the top right corner of your Databricks notebook, and click Generate New Token. Provide a commment and expiry, click Generate and copy the token. Back in ADF create a new pipeline called ETL and add a Databricks notebook activity. In the Azure Databricks tab, create a new linked service. Choose the correct subscription and workspace, and enter the token in the new job cluster section. Complete the rest of the required fields and click create. In the settings tab speicify notebook 99. Run ETL to be executed and pass the following parameters to the job:
+customerSourcePath = /mnt/datalake/raw/customers/
+orderitemsSourcePath = /mnt/datalake/raw/orderitems/
+ordersSourcePath = /mnt/datalake/raw/orders/
+
+## Run the ETL pipeline
+
+Trigger the pipeline to run immediately and monitor the progress of the job. To spin up a new cluster and run the job should take approximately 10 minutes. 
+
 # Next
 
 Congratulations, you have completed Lab 3a! Proceed to [Lab 4](../Lab4/Lab4.md)
