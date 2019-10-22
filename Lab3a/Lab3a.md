@@ -95,8 +95,11 @@ Review the last notebook 99. Run ETL which invokes all three notebooks, passing 
 ## Run the notebook from ADF
 
 Before you can execute a Databricks notebook activity in ADF you will need to configure an access token. Click in the User settings menu in the top right corner of your Databricks notebook, and click Generate New Token. Provide a commment and expiry, click Generate and copy the token. Back in ADF create a new pipeline called ETL and add a Databricks notebook activity. In the Azure Databricks tab, create a new linked service. Choose the correct subscription and workspace, and enter the token in the new job cluster section. Complete the rest of the required fields and click create. In the settings tab speicify notebook 99. Run ETL to be executed and pass the following parameters to the job:
+<p>
 customerSourcePath = /mnt/datalake/raw/customers/
+
 orderitemsSourcePath = /mnt/datalake/raw/orderitems/
+
 ordersSourcePath = /mnt/datalake/raw/orders/
 
 ## Run the ETL pipeline
